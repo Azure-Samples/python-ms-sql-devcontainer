@@ -13,8 +13,6 @@ pushd "${SRC_DIR}"
 # Configure templates only if `devcontainer-template.json` contains the `options` property.
 OPTION_PROPERTY=( $(jq -r '.options' devcontainer-template.json) )
 
-echo "I am here"
-
 if [ "${OPTION_PROPERTY}" != "" ] && [ "${OPTION_PROPERTY}" != "null" ] ; then  
     OPTIONS=( $(jq -r '.options | keys[]' devcontainer-template.json) )
 
@@ -54,4 +52,6 @@ npm install -g @devcontainers/cli
 
 echo "Building Dev Container"
 ID_LABEL="test-container=${TEMPLATE_ID}"
+echo "I am up to here 1"
 devcontainer up --id-label ${ID_LABEL} --workspace-folder "${SRC_DIR}"
+echo "I am up to here 2"
