@@ -13,6 +13,8 @@ pushd "${SRC_DIR}"
 # Configure templates only if `devcontainer-template.json` contains the `options` property.
 OPTION_PROPERTY=( $(jq -r '.options' devcontainer-template.json) )
 
+echo "I am here"
+
 if [ "${OPTION_PROPERTY}" != "" ] && [ "${OPTION_PROPERTY}" != "null" ] ; then  
     OPTIONS=( $(jq -r '.options | keys[]' devcontainer-template.json) )
 
