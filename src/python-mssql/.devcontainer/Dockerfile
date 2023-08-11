@@ -6,10 +6,7 @@ FROM mcr.microsoft.com/vscode/devcontainers/python:0-${templateOption:pythonImag
 WORKDIR /workspace
 
 # apt-get and system utilities
-RUN apt-get update && apt-get install -y \
-	curl apt-transport-https debconf-utils gnupg2
-
-RUN apt-get update && apt-get install -y ffmpeg libsm6 libxext6 g++ unixodbc-dev
+RUN apt-get update && apt-get install -y curl
 
 # Install SQL Tools: SQLPackage and sqlcmd. This is only needed for the local dev enviroment
 COPY mssql/installSQLtools.sh installSQLtools.sh
