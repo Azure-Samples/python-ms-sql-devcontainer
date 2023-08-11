@@ -4,7 +4,7 @@ source test-utils.sh
 
 # Template specific tests
 check "distro" lsb_release -c
-check "greeting" [ $(cat /usr/local/etc/greeting.txt | grep hey) ]
+check "python-mssql" [ $(cat /tmp/python-mssql.txt | grep 3.11-bullseye) ]
 
 # Report result
 reportResults
