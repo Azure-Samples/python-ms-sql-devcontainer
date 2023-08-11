@@ -8,15 +8,9 @@ services:
       - ..:/workspace
     working_dir: /workspace
     command: sleep infinity
-    ports:
-      - 8000:8000
-      - 7000:7000
     deploy:
       resources:
         limits:
-          cpus: '4'
-          memory: 4G
-        reservations:
           cpus: '4'
           memory: 4G
 
