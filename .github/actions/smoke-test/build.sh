@@ -52,6 +52,7 @@ npm install -g @devcontainers/cli
 
 echo "Building Dev Container"
 ID_LABEL="test-container=${TEMPLATE_ID}"
-echo "I am up to here 1"
+echo "I am up to here 1" 
+echo "${SRC_DIR}"
 devcontainer up --id-label ${ID_LABEL} --workspace-folder "${SRC_DIR}"   --log-level debug
 echo "I am up to here 2"
