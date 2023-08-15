@@ -1,0 +1,23 @@
+version: '3'
+services:
+  app:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    volumes:
+      - ..:/workspace
+    working_dir: /workspace
+    command: sleep infinity
+  db:
+    image: mcr.microsoft.com/azure-sql-edge:latest
+    restart: unless-stopped
+    volumes:
+      - sql-server-data:/var/lib/sql-server-data/data
+    environment:
+      - ACCEPT_EULA=1
+      - MSSQL_SA_PASSWORD=P@ssw0rd
+    ports:
+      - 1433:1433
+
+volumes:
+  sql-server-data:

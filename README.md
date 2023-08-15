@@ -1,57 +1,20 @@
-# Project Name
+# Python and MS SQL Server (Python-mssql)
 
-(short, 1-3 sentenced, description of the project)
+> This repo provides a template for Python and MS SQL Server development. It is intended to be used with the [VS Code Remote - Containers](https://aka.ms/vscode-remote/containers) extension. 
 
-## Features
+## Repo and Template Structure
 
-This project framework provides the following features:
-
-* Feature 1
-* Feature 2
-* ...
-
-## Getting Started
-
-### Prerequisites
-
-(ideally very short, if any)
-
-- OS
-- Library version
-- ...
-
-### Installation
-
-(ideally very short)
-
-- npm install [package name]
-- mvn install
-- ...
-
-### Quickstart
-(Add steps to get up and running quickly)
-
-1. git clone [repository clone url]
-2. cd [repository name]
-3. ...
-
-
-## Demo
-
-A demo app is included to show how to use the project.
-
-To run the demo, follow these steps:
-
-(Add steps to start up the demo)
-
-1.
-2.
-3.
-
-## Resources
-
-(Any additional resources or related projects)
-
-- Link to supporting information
-- Link to similar sample
-- ...
+This repository contains a template with the following structure:
+```
+├── src
+│   ├── python-mssql
+│   │   ├── devcontainer-template.json
+│   │   └──| .devcontainer
+│   │      └── devcontainer.json
+├── test
+│   ├── python-mssql
+│   │   └── test.sh
+│   └──test-utils
+│      └── test-utils.sh
+...
+```
