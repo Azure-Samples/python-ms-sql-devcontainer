@@ -8,12 +8,6 @@ services:
       - ..:/workspace
     working_dir: /workspace
     command: sleep infinity
-    deploy:
-      resources:
-        limits:
-          cpus: '4'
-          memory: 4G
-
   db:
     image: mcr.microsoft.com/azure-sql-edge:latest
     restart: unless-stopped
