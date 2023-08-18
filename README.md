@@ -34,19 +34,21 @@ This template references an image that was [pre-built](https://containers.dev/im
 
 ## Using this template
 
-This template creates two containers: Python and Microsoft SQL Server. You will be connected to the Ubuntu or Debian container, and from within that container the MS SQL container will be available on **`localhost`** port 1433. The Python container also includes supporting scripts in the `.devcontainer/mssql` folder used to configure the database. 
+This template creates two containers: Python and MS SQL Server. After running the template, Python container will be the main connected development container and from within that container the MS SQL Server container will be available on **`db`** port 1433. By default, the `sa` user password is `P@ssw0rd`. All database parameters may be changed in `.devcontainer/docker-compose.yml` file if desired.
 
-The MS SQL container is deployed from the latest developer edition of Microsoft SQL 2022. The database(s) are made available directly in the Codespace/VS Code through the MSSQL extension with a connection labeled "db-data-model".  The default `sa` user password is set to `P@ssw0rd`. The default SQL port is mapped to port `1433` in `.devcontainer/docker-compose.yml`.
+You also can connect to MS SQL Server from an external tool when connected to the Dev Container from a local tool by updating `.devcontainer/devcontainer.json` as follows:
 
-#### Changing the sa password
+```json
+"forwardPorts": [ "1432" ]
+```
+
+You can also easily use the [SQL Server extension](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql) to connect to the database or any Azure databases from VS Code.
+
+Once the MS SQL Server container has port forwarding enabled, it will be accessible from the Host machine at `localhost:1433`.
+
+### Changing the sa password
 
 To change the `sa` user password, change the value in `.devcontainer/docker-compose.yml` and `.devcontainer/devcontainer.json`.
-
-#### Database deployment
-
-By default, a blank user database is created titled "ApplicationDB".  To add additional database objects or data through T-SQL during Codespace configuration, edit the file `.devcontainer/mssql/setup.sql` or place additional `.sql` files in the `.devcontainer/mssql/` folder. *Large numbers of scripts may take a few minutes following container creation to complete, even when the SQL server is available the database(s) may not be available yet.*
-
-Alternatively, .dacpac files placed in the `./bin/Debug` folder will be published as databases in the container during Codespace configuration. [SqlPackage](https://docs.microsoft.com/sql/tools/sqlpackage) is used to deploy a database schema from a data-tier application file (dacpac), allowing you to bring your application's database structures into the dev container easily. *The publish process may take a few minutes following container creation to complete, even when the server is available the database(s) may not be available yet.*
 
 ### Adding other services
 
@@ -63,3 +65,9 @@ Before start working with MS SQL Server locally, you will need to connect to the
 Use **`db`** as a server name and **`sa`** as a user name. The password is **`P@ssw0rd`** by default. Once entered the password, you will be prompted to enable trust server certificate as below:
 
 ![Trust Server Certificate](src/python-mssql/images/trust.png)
+
+### Database deployment
+
+By default, a blank user database is created titled "ApplicationDB".  To add additional database objects or data through T-SQL during Codespace configuration, edit the file `.devcontainer/mssql/setup.sql` or place additional `.sql` files in the `.devcontainer/mssql/` folder. *Large numbers of scripts may take a few minutes following container creation to complete, even when the SQL server is available the database(s) may not be available yet.*
+
+Alternatively, .dacpac files placed in the `./bin/Debug` folder will be published as databases in the container during Codespace configuration. [SqlPackage](https://docs.microsoft.com/sql/tools/sqlpackage) is used to deploy a database schema from a data-tier application file (dacpac), allowing you to bring your application's database structures into the dev container easily. *The publish process may take a few minutes following container creation to complete, even when the server is available the database(s) may not be available yet.*

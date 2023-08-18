@@ -2,7 +2,7 @@
     "id": "python-mssql",
     "version": "1.0.0",
     "name": "Python 3 & Microsoft Sql Server",
-    "description": "Develop Python 3 applications with Microsoft Sql Server",
+    "description": "Develop Python based applications with all required components to interact with MS SQL Server locally and in Azure. Includes all needed SDKs, extensions, dependencies and an MS SQL container for parallel database development. Adds an additional MS SQL container to Python container definition and deploys any .dacpac files from the mssql .devcontainer folder.",
     "documentationURL": "https://github.com/Azure-Samples/python-ms-sql-devcontainer/blob/main/src/python-mssql/",
     "publisher": "Microsoft - ISE - Thunderbolt team",
     "licenseURL": "https://github.com/Azure-Samples/python-ms-sql-devcontainer/blob/main/LICENSE",
